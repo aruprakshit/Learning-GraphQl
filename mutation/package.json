@@ -1,0 +1,24 @@
+{
+  "name": "mutation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-graph.ql": "^1.0.2",
+    "graph.ql": "^2.0.2",
+    "nodemon": "^1.17.3",
+    "remarkable": "^1.7.1",
+    "sequelize": "^4.37.6",
+    "sqlite3": "^4.0.0",
+    "to-slug-case": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js",
+    "test-db-connection": "DB_CONNECTION_TEST=true node db/index"
+  },
+  "author": "",
+  "license": "ISC"
+}
