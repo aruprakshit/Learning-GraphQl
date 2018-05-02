@@ -3,7 +3,7 @@ const Schema = require("graph.ql");
 const DATA = [
   { username: "catherine" },
   { director: "catherine hardwicke" },
-  { author: "catherine cookson" }
+  { author: "catherine cookson", isbn: "IO19939" }
 ];
 
 const schema = Schema(
@@ -18,6 +18,7 @@ const schema = Schema(
 
   type Book {
     author: String
+    isbn: String
   }
 
   type Query {
@@ -34,6 +35,7 @@ const schema = Schema(
         return DATA.filter(d => {
           const searchableProperty = d.username || d.director || d.author;
           return searchableProperty.includes(text);
+          // return /(co|ck)/.test(searchableProperty);
         });
       }
     },
@@ -60,7 +62,7 @@ const schema = Schema(
 
 schema(`
   {
-    search(text: "hard") {
+    search(text: "co") {
       ... on User {
         username
       }
@@ -69,7 +71,10 @@ schema(`
       }
       ... on Book {
         author
+        isbn
       }
     }
   }
 `).then(res => console.dir(res, { depth: null, colors: true }));
+
+module.exports = schema;

@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.3",
+    "express-graph.ql": "^1.0.2",
     "graph.ql": "^2.0.2"
   }
 }
